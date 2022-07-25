@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<!--QUIZ GAME!
+
+        REGOLE:
+        / Il giocatore deve indovinare il maggior numero di risposte possibile
+        / Ogni risposta corretta vale 1 punto
+        / Le domande possono essere a risposta multipla oppure vero/falso
+        / Alla fine della partita il giocatore deve sapere il proprio risultato
+
+        DOMANDE:
+        / Puoi prenderle da questo URL (http://bit.ly/strive_QUIZZ) oppure puoi creare le tue
+        / Possono essere a risposta multipla oppure vero/falso
+
+        SUGGERIMENTI PER L'ESERCIZIO:
+        / Memorizza il punteggio totale dell'utente in una variabile
+        / Memorizza in una variabile questionNumber a quale domanda il giocatore sta rispondendo
+        / Quando questionNumber diventa maggiore del numero totale delle domande, la partita è finita e devi mostrare il punteggio
+        / Memorizza le domande in una variabile (oppure recuperale direttamente dall'URL usando AJAX, se già sai come farlo!)
+        / Comincia con i requisiti base, se ti avanza tempo prosegui con gli EXTRA
+        / Verifica tramite la console che il flow dell'applicazione sia corretto, in modo che non ci siano problemi nell'esecuzione
+
+        EXTRA:
+        / Mostra immediatamente al giocatore una volta selezionata la risposta se ha fatto punto oppure no
+        / Presenta le domande al giocatore una alla volta, invece di mostrargliele tutte insieme
+        / Permetti al giocatore di selezionare il livello di difficoltà e il numero delle risposte 
+        (puoi recuperarle da qui https://opentdb.com/api.php?amount=10&category=18&difficulty=easy 
+        modificando nell'URL i parametri "amount") e "difficulty"-->
+
+      <!-- ANCORA SUGGERIMENTI :)
+      // Se stai mostrando al giocatore tutte le domande in un colpo solo:
+      // Per ogni domanda, crea un elemento contenitore; poi crea un radio button 
+      (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
+      // con, come opzioni, sia la risposta corretta che quella/e non corretta/e. 
+      (puoi utilizzare google per capire come recuperare il valore di un radio button per il punteggio finale)
+      
+      // Se stai mostrando al giocatore le domande una alla volta:
+      // All'inizio mostra la prima domanda con il testo i i radio buttons. Quando il giocatore seleziona una risposta, prendi la domanda
+      // successiva dall'elenco e rimpiazza la domanda vecchia, salvando la risposta selezionata in una variabile.
+
+      // Come calcolare il punteggio? Puoi farlo in 2 modi:
+      // Se stai mostrando al giocatore tutte le domande in un colpo solo, seleziona tutti i radio buttons e controlla se la risposta selezionata
+      // è quella corretta.
+      // Se stai mostrando al giocatore le domande una alla volta, basta aggiungere o no 1 punto ogni volta che viene selezionata una risposta.-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+</head>
+
+<body cz-shortcut-listen="true">
+
+  <h1 style="text-align:center">Quiz</h1>
+
+                                                                <!-- QUESTION 1 -->
+
+  <fieldset class="question1" id="question1">
+
+  <legend>
+    1 - What does CPU stand for?
+  </legend>
+
+  <div>
+    <input type="radio"  name="risposta1" value="corretto">
+    <label for="CPU1">
+      Central Processing Unit
+    </label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta1" value="sbagliato">
+    <label for="CPU2">
+      Central Process Unit
+    </label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta1" value="sbagliato">
+
+    <label for="CPU3">
+      Computer Personal Unit
+    </label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta1" value="sbagliato">
+    <label for="CPU4">
+      Central Processor Unit
+    </label>
+  </div>
+
+  </fieldset>
+
+  <br>
+  <hr>
+  <br>
+
+                                                                <!-- QUESTION 2 -->
+
+  <fieldset class="question2" id="question2">
+
+  <legend class="2" id="q2">
+    2 - In the programming language Java, which of these keywords would you put on a variable to
+    make sure it doesn't get modified?
+  </legend>
+
+  <div>
+    <input type="radio"  name="risposta2" value="corretto">
+    <label for="Java1">Final</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta2" value="sbagliato">
+    <label for="Java2">Static</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta2" value="sbagliato">
+
+    <label for="Java3">Private</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta2" value="sbagliato">
+    <label for="Java4">Public</label>
+  </div>
+
+</fieldset>
+
+<br>
+  <hr>
+  <br>
+                                                  <!-- QUESTION 3 -->
+
+<fieldset class="question3" id="question3">
+
+  <legend class="3" id="q3">
+    3 - The logo for Snapchat is a Bell.
+  </legend>
+
+  <div>
+    <input type="radio"  name="risposta3" value="sbagliato">
+    <label for="Snapchat1">True</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta3" value="corretto">
+    <label for="Snapchat2">False</label>
+  </div>
+
+</fieldset>
+
+<br>
+  <hr>
+  <br>
+                                                  <!-- QUESTION 4 -->
+
+<fieldset class="question4" id="question4">
+
+  <legend class="4" id="q4">
+    4 - Pointers were not used in the original C programming language; they were added later on in C++.
+  </legend>
+
+  <div>
+    <input type="radio"  name="risposta4" value="sbagliato">
+    <label for="C1">True</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta4" value="corretto">
+    <label for="C2">False</label>
+  </div>
+
+</fieldset>
+
+<br>
+  <hr>
+  <br>
+
+                                                  <!-- QUESTION 5 -->
+
+<fieldset class="question5" id="question5">
+
+  <legend class="5" id="q5">
+    5 - What is the most preferred image format used for logos in the Wikimedia database?
+  </legend>
+
+  <div>
+    <input type="radio"  name="risposta5" value="sbagliato">
+    <label for="Wikimedia1">.png</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta5" value="corretto">
+    <label for="Wikimedia2">.svg</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta5" value="sbagliato">
+
+    <label for="Wikimedia3">.jpeg</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta5" value="sbagliato">
+    <label for="Wikimedia4">.gif</label>
+  </div>
+
+</fieldset>
+
+<br>
+  <hr>
+  <br>
+
+
+                                                  <!-- QUESTION 6 -->
+
+<fieldset class="question6" id="question6">
+
+  <legend class="6" id="q6">
+    6 - In web design, what does CSS stand for?
+  </legend>
+
+  <div>
+    <input type="radio"  name="risposta6" value="sbagliato">
+    <label for="CSS1">Counter Strike: Source</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta6" value="corretto">
+    <label for="CSS2">Cascading Style Sheet</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta6" value="sbagliato">
+
+    <label for="CSS3">Corrective Style Sheet</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta6" value="sbagliato">
+    <label for="CSS4">Computer Style Sheet</label>
+  </div>
+
+</fieldset>
+
+<br>
+  <hr>
+  <br>
+
+                                                    <!-- QUESTION 7 -->
+
+<fieldset class="question7" id="question7">
+
+  <legend class="7" id="q7">
+    7 - What is the code name for the mobile operating system Android 7.0?
+  </legend>
+
+  <div>
+    <input type="radio"  name="risposta7" value="corretto">
+    <label for="Android1">Nougat</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta7" value="sbagliato">
+    <label for="Android2">Ice Cream Sandwich</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta7" value="sbagliato">
+    <label for="Android3">Marshmallow</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta7" value="sbagliato">
+    <label for="Android4">Jelly Bean</label>
+  </div>
+
+</fieldset>
+
+  <br>
+  <hr>
+  <br>
+
+                                                        <!-- QUESTION 8 -->
+
+<fieldset class="question8" id="question8">
+
+  <legend class="8" id="q8">
+    8 - On Twitter, what is the character limit for a Tweet?
+  </legend>
+
+  <div>
+    <input type="radio" name="risposta8" value="sbagliato">
+    <label for="Tweet1">120</label>
+  </div>
+
+  <div>
+    <input type="radio" name="risposta8" value="sbagliato">
+    <label for="Tweet2">160</label>
+  </div>
+
+  <div>
+    <input type="radio" name="risposta8" value="corretto">
+    <label for="Tweet3">140</label>
+  </div>
+
+  <div>
+    <input type="radio" name="risposta8" value="sbagliato">
+    <label for="Tweet4">100</label>
+  </div>
+
+</fieldset>
+
+  <br>
+  <hr>
+  <br>
+
+                                                      <!-- QUESTION 9 -->
+
+<fieldset class="question9" id="question9">
+
+  <legend class="9" id="q9">
+    9 - Linux was first created as an alternative to Windows XP.
+  </legend>
+
+  <div>
+    <input type="radio" name="risposta9" value="sbagliato">
+    <label for="Linux1">True</label>
+  </div>
+
+  <div>
+    <input type="radio"  name="risposta9" value="corretto">
+    <label for="Linux2">False</label>
+  </div>
+
+</fieldset>
+
+  <br>
+  <hr>
+  <br>
+
+                                                      <!-- QUESTION 10 -->
+
+<fieldset class="question10" id="question10">
+
+  <legend class="10" id="q10">
+    10 - Which programming language shares its name with an island in Indonesia?
+  </legend>
+
+  <div>
+    <input type="radio" name="risposta10" value="sbagliato">
+    <label for="Island1">Python</label>
+  </div>
+
+  <div>
+    <input type="radio" name="risposta10" value="sbagliato">
+    <label for="Island2">Jakarta</label>
+  </div>
+
+  <div>
+    <input type="radio" name="risposta10" value="corretto">
+    <label for="Island3">Java</label>
+  </div>
+
+  <div>
+    <input type="radio" name="risposta10" value="sbagliato">
+    <label for="Island4">C</label>
+  </div>
+
+</fieldset>
+
+  <br>
+  <hr>
+  <br>
+
+
+<button onclick="getResults()">Fine quiz</button>
+
+<script>
+
+/*let risposteDate = document.querySelectorAll('input[type="radio"]:checked');*/
+
+
+/*let checked = document.querySelectorAll("input[type=radio]:checked");
+checked.addEventListener('change', function() {
+  let counter=0;
+    for(let i=0;i<checked.length;i++){
+        if(checked[i].checked){
+        counter++;
+        }
+    }
+    if(counter == 2){
+            window.alert("You have made maximum choices. Proceed to next form")
+        }});*/
+
+
+
+/*var checkboxes = document.querySelectorAll("input[type=radio]");
+let enabledSettings = []
+
+
+checkboxes.forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+    enabledSettings = 
+      Array.from(checkboxes)
+      .filter(i => i.checked)
+      .map(i => i.value)
+      
+    if (enabledSettings.lenght == 2){
+      window.alert("fine quiz");
+    }
+  })
+});*/
+
+
+/*var checkboxLimit = 2;
+document.querySelectorAll("input[type=radio]").forEach(
+// For each check box add on click event listener
+  input => input.addEventListener('click', function(event) {
+  // get number of check boxes by passing :check attribute to the query selector
+    var numberTickedBoxes = document.querySelectorAll("input[type=radio]:checked").length;
+    // check if the number of ticked boxes are more than allowed limit
+    if(checkboxLimit < numberTickedBoxes){
+      window.alert("You are allowed to check" + checkboxLimit + "boxes")
+    }
+  })
+);*/
+
+
+/*let x = document.querySelectorAll("input:checked")*/
+/*switch (risposteDate){
+  case 1
+  window.alert("fine partita");
+};*/
+
+
+/*var inputElems = document.getElementsByTagName("input");
+var count = 0;
+    for (var i=0; i<inputElems.lenght; i++) {
+    if (inputElems[i].checked){
+        count++;
+    }
+  };*/
+
+    /*if (count == 2){
+      window.alert("fine");
+    };*/
+
+function getResults() {
+var score = 0;
+for(var i = 1; i <= 10; i++) {
+  var radiosName = document.getElementsByName("risposta"+i);
+  for(var j = 0; j < radiosName.length; j++) {
+    var radiosValue = radiosName[j];
+    if(radiosValue.value == "corretto" && radiosValue.checked) {
+      score++;  
+    }
+  }
+}
+window.alert("Fine quiz! Punteggio =" + score +"/10");
+};
+
+
+/*let domanda1 = document.getElementById("question1");
+domanda1.onclick(aumentoConteggio());
+
+let rispostaEsatta1 = document.getElementsById("CPU1").checked;
+
+function aumentoPunteggio(){
+  if(rispostaEsatta1){}
+  score = score + 1;
+  window.alert("Il punteggio è"+score);
+};*/
+
+    /*function conteggioDomanda() {
+      questionNumber += questionNumber
+    }
+
+    function check() {
+      var risposteEsatte = document.getElementsByTagName("input");
+      var arr = Array.from(risposteEsatte);
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].checked == true && arr[i].value == "true") {
+          score += 1;
+        }
+        window.alert("punteggio totale =" + score);
+      }
+    };*/
+
+    /*var questionNumber = document.getElementByTagName("input");
+    var arr2 = Array.from(questionNumber);
+    for (let i = 0;i++;i<arr2.length){
+      if arr2
+    }*/
+
+    const questions = [
+      {
+        category: 'Science: Computers',
+        type: 'multiple',
+        difficulty: 'easy',
+        question: 'What does CPU stand for?',
+        correct_answer: 'Central Processing Unit',
+        incorrect_answers: [
+          'Central Process Unit',
+          'Computer Personal Unit',
+          'Central Processor Unit',
+        ],
+      },
+
+      {
+        category: 'Science: Computers',
+        type: 'multiple',
+        difficulty: 'easy',
+        question:
+          'In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?',
+        correct_answer: 'Final',
+        incorrect_answers: ['Static', 'Private', 'Public'],
+      },
+
+      {
+        category: 'Science: Computers',
+        type: 'boolean',
+        difficulty: 'easy',
+        question: 'The logo for Snapchat is a Bell.',
+        correct_answer: 'False',
+        incorrect_answers: ['True'],
+      },
+
+      {
+        category: 'Science: Computers',
+        type: 'boolean',
+        difficulty: 'easy',
+        question:
+          'Pointers were not used in the original C programming language; they were added later on in C++.',
+        correct_answer: 'False',
+        incorrect_answers: ['True'],
+      },
+
+      {
+        category: 'Science: Computers',
+        type: 'multiple',
+        difficulty: 'easy',
+        question:
+          'What is the most preferred image format used for logos in the Wikimedia database?',
+        correct_answer: '.svg',
+        incorrect_answers: ['.png', '.jpeg', '.gif'],
+      },
+
+      {
+        category: 'Science: Computers',
+        type: 'multiple',
+        difficulty: 'easy',
+        question: 'In web design, what does CSS stand for?',
+        correct_answer: 'Cascading Style Sheet',
+        incorrect_answers: [
+          'Counter Strike: Source',
+          'Corrective Style Sheet',
+          'Computer Style Sheet',
+        ],
+      },
+
+      {
+        category: 'Science: Computers',
+        type: 'multiple',
+        difficulty: 'easy',
+        question:
+          'What is the code name for the mobile operating system Android 7.0?',
+        correct_answer: 'Nougat',
+        incorrect_answers: [
+          'Ice Cream Sandwich',
+          'Jelly Bean',
+          'Marshmallow',
+        ],
+      },
+
+      {
+        category: 'Science: Computers',
+        type: 'multiple',
+        difficulty: 'easy',
+        question: 'On Twitter, what is the character limit for a Tweet?',
+        correct_answer: '140',
+        incorrect_answers: ['120', '160', '100'],
+      },
+
+      {
+        category: 'Science: Computers',
+        type: 'boolean',
+        difficulty: 'easy',
+        question: 'Linux was first created as an alternative to Windows XP.',
+        correct_answer: 'False',
+        incorrect_answers: ['True'],
+      },
+
+      {
+        category: 'Science: Computers',
+        type: 'multiple',
+        difficulty: 'easy',
+        question:
+          'Which programming language shares its name with an island in Indonesia?',
+        correct_answer: 'Java',
+        incorrect_answers: ['Python', 'C', 'Jakarta'],
+      },
+    ];
+
+    /*window.onload = function () {}*/
+
+  </script>
+
+</body>
+
+</html>
